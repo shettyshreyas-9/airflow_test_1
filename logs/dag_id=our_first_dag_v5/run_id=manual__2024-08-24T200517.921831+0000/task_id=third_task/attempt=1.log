@@ -1,0 +1,23 @@
+[2024-08-24T20:05:22.769+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-08-24T20:05:22.786+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: our_first_dag_v5.third_task manual__2024-08-24T20:05:17.921831+00:00 [queued]>
+[2024-08-24T20:05:22.796+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: our_first_dag_v5.third_task manual__2024-08-24T20:05:17.921831+00:00 [queued]>
+[2024-08-24T20:05:22.797+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2024-08-24T20:05:22.814+0000] {taskinstance.py:2879} INFO - Executing <Task(BashOperator): third_task> on 2024-08-24 20:05:17.921831+00:00
+[2024-08-24T20:05:22.819+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=6631) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-08-24T20:05:22.821+0000] {standard_task_runner.py:72} INFO - Started process 6633 to run task
+[2024-08-24T20:05:22.821+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'our_first_dag_v5', 'third_task', 'manual__2024-08-24T20:05:17.921831+00:00', '--job-id', '13', '--raw', '--subdir', 'DAGS_FOLDER/our_first_dag.py', '--cfg-path', '/tmp/tmpcgndbo_y']
+[2024-08-24T20:05:22.823+0000] {standard_task_runner.py:105} INFO - Job 13: Subtask third_task
+[2024-08-24T20:05:22.869+0000] {task_command.py:467} INFO - Running <TaskInstance: our_first_dag_v5.third_task manual__2024-08-24T20:05:17.921831+00:00 [running]> on host 90ca7eb2d7b6
+[2024-08-24T20:05:22.953+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='shreyas' AIRFLOW_CTX_DAG_ID='our_first_dag_v5' AIRFLOW_CTX_TASK_ID='third_task' AIRFLOW_CTX_EXECUTION_DATE='2024-08-24T20:05:17.921831+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-24T20:05:17.921831+00:00'
+[2024-08-24T20:05:22.954+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-08-24T20:05:22.966+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-08-24T20:05:22.967+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'echo hey, third task running after task1 at the same time as task2']
+[2024-08-24T20:05:22.975+0000] {subprocess.py:86} INFO - Output:
+[2024-08-24T20:05:22.977+0000] {subprocess.py:93} INFO - hey, third task running after task1 at the same time as task2
+[2024-08-24T20:05:22.977+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-08-24T20:05:23.005+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-08-24T20:05:23.006+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=our_first_dag_v5, task_id=third_task, run_id=manual__2024-08-24T20:05:17.921831+00:00, execution_date=20240824T200517, start_date=20240824T200522, end_date=20240824T200523
+[2024-08-24T20:05:23.037+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2024-08-24T20:05:23.050+0000] {local_task_job_runner.py:240} INFO - ::endgroup::

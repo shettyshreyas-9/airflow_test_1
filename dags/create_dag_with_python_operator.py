@@ -12,19 +12,26 @@ default_args={
 def greet(name,age):
     print(f"Hello World! My name is {name} and I am {age} years old.")
 
+
+def get_name():
+    return 'Jerry'
+
 with DAG(
     default_args= default_args,
-    dag_id= 'our_first_dag_with_python_operator_v2',
+    dag_id= 'our_first_dag_with_python_operator_v3',
     description= 'Our first dag using python operator',
-    start_date= datetime(2024,8,25, 4),
+    start_date= datetime(2024,8,25, 1),
     schedule_interval='@daily'
-
 ) as dag:
-    
-    task_1= PythonOperator(
-        task_id='greet',
-        python_callable= greet,
-        op_kwargs={'name':'Steven Strange', 'age':50}
+    # task_1= PythonOperator(
+    #     task_id='greet',
+    #     python_callable= greet,
+    #     op_kwargs={'name':'Steven Strange', 'age':50}
+    # )
+
+    task_2 = PythonOperator(
+        task_id= 'get_name',
+        python_callable= get_name
     )
 
-    task_1
+    task_2
