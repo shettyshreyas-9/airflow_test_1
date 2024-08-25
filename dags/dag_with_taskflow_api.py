@@ -8,28 +8,32 @@ default_args={
     'retry_delay': timedelta(minutes=5)
 }
 
-@dag(dag_id='dag_with_taskflow_api_v1',
+@dag(dag_id='dag_with_taskflow_api_v2',
      default_args=default_args,
      start_date=datetime(2024,8,20),
      schedule_interval='@daily')
 def hello_world_etl():
     
-    @task()
+    @task(multiple_outputs=True)
     def get_name():
-        return "Steven Strange"
+        return {
+            'first_name':"Bruce",
+            'last_name':"Banner"
+        }
+    
     
     @task()
     def get_age():
-        return 50
+        return 45
     
     @task()
-    def greet(name,age):
-        print(f"Hello World! My name is {name} and I am {age} years old.")
+    def greet(first_name,last_name,age):
+        print(f"Hello World! My name is {first_name} {last_name} and I am {age} years old.")
 
 
-    name= get_name()
+    name_dict= get_name()
     age= get_age()
-    greet(name=name,age=age)
+    greet(first_name=name_dict['first_name'],last_name=name_dict['last_name'],age=age)
 
 
 greet_dag = hello_world_etl()
