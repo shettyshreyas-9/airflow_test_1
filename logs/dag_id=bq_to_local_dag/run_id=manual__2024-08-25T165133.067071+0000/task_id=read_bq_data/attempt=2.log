@@ -1,0 +1,22 @@
+[2024-08-25T16:56:41.038+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-08-25T16:56:41.053+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: bq_to_local_dag.read_bq_data manual__2024-08-25T16:51:33.067071+00:00 [queued]>
+[2024-08-25T16:56:41.061+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: bq_to_local_dag.read_bq_data manual__2024-08-25T16:51:33.067071+00:00 [queued]>
+[2024-08-25T16:56:41.062+0000] {taskinstance.py:2856} INFO - Starting attempt 2 of 2
+[2024-08-25T16:56:41.080+0000] {taskinstance.py:2879} INFO - Executing <Task(PythonOperator): read_bq_data> on 2024-08-25 16:51:33.067071+00:00
+[2024-08-25T16:56:41.087+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=479) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-08-25T16:56:41.088+0000] {standard_task_runner.py:72} INFO - Started process 481 to run task
+[2024-08-25T16:56:41.089+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'bq_to_local_dag', 'read_bq_data', 'manual__2024-08-25T16:51:33.067071+00:00', '--job-id', '162', '--raw', '--subdir', 'DAGS_FOLDER/gcp_integration_dag.py', '--cfg-path', '/tmp/tmp6zkz16c6']
+[2024-08-25T16:56:41.092+0000] {standard_task_runner.py:105} INFO - Job 162: Subtask read_bq_data
+[2024-08-25T16:56:41.141+0000] {task_command.py:467} INFO - Running <TaskInstance: bq_to_local_dag.read_bq_data manual__2024-08-25T16:51:33.067071+00:00 [running]> on host b41c83b24869
+[2024-08-25T16:56:41.218+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***_SS' AIRFLOW_CTX_DAG_ID='bq_to_local_dag' AIRFLOW_CTX_TASK_ID='read_bq_data' AIRFLOW_CTX_EXECUTION_DATE='2024-08-25T16:51:33.067071+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-25T16:51:33.067071+00:00'
+[2024-08-25T16:56:41.220+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-08-25T16:56:44.114+0000] {logging_mixin.py:190} INFO - Data has been written to /opt/***/data/bq_data.csv
+[2024-08-25T16:56:44.115+0000] {logging_mixin.py:190} INFO - QueryJob<project=aceinternal-2ed449d3, location=EU, id=1da92bbd-5e71-4191-81ed-b2fb66e76537>
+[2024-08-25T16:56:44.116+0000] {python.py:240} INFO - Done. Returned value was: None
+[2024-08-25T16:56:44.126+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-08-25T16:56:44.128+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=bq_to_local_dag, task_id=read_bq_data, run_id=manual__2024-08-25T16:51:33.067071+00:00, execution_date=20240825T165133, start_date=20240825T165641, end_date=20240825T165644
+[2024-08-25T16:56:44.167+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2024-08-25T16:56:44.184+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-25T16:56:44.187+0000] {local_task_job_runner.py:240} INFO - ::endgroup::

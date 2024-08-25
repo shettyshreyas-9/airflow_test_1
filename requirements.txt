@@ -1,0 +1,7 @@
+apache-airflow[gcp]
+google-cloud-storage
+
+apache-airflow-providers-google
+google-auth
+google-cloud-bigquery
+google-api-python-client
