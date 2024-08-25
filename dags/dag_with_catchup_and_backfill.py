@@ -11,11 +11,11 @@ default_args= {
 }
 
 with DAG(
-    dag_id='dag_with_catchup_and_backfill_v1',
+    dag_id='dag_with_catchup_and_backfill_v2',
     default_args= default_args,
     start_date= datetime(2024,8,20),
     schedule_interval='@daily',
-    catchup= True
+    catchup= False
 ) as dag:
     task1= BashOperator(
         task_id='task1',
